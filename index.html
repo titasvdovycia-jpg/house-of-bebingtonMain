@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>House of Bebington</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    /* smooth transitions */
+    .expandable-content {
+      transition: max-height 0.7s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.7s ease;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+    .expanded .expandable-content {
+      max-height: 800px;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#0d1a15] text-[#f2f0e4] font-light selection:bg-[#d97757]/30 relative">
+  
+  <div class="fixed inset-0 pointer-events-none z-0 bg-[#0d1a15]">
+    <div class="absolute inset-0 bg-[url('image_70aacb.jpg')] bg-cover bg-center bg-no-repeat opacity-40 mix-blend-overlay"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0d1a15]/70 via-[#0d1a15]/80 to-[#0d1a15]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,_#1d2e27_0%,_transparent_70%)] mix-blend-screen"></div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-8 py-24 relative z-10">
+    <header class="mb-32">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div class="space-y-6">
+          <div class="h-px w-12 bg-[#d97757]"></div>
+          <h1 class="text-6xl md:text-7xl font-extralight tracking-tighter text-white">
+            House of Bebington<span class="text-[#d97757] font-normal">.</span>
+          </h1>
+        </div>
+        
+        <div class="flex flex-col items-end gap-2 text-right">
+          <span class="text-[10px] uppercase tracking-[0.3em] text-[#d97757] font-bold">Connect</span>
+          <div class="flex gap-6 text-[#a8b3ac]">
+            <a href="mailto:titasvdovycia@gmail.com" title="Email"><i data-feather="mail" class="w-4 h-4 hover:text-white transition-colors"></i></a>
+            <a href="https://www.linkedin.com/in/titas-vdovycia-2b90603a/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i data-feather="linkedin" class="w-4 h-4 hover:text-white transition-colors"></i></a>
+            <a href="https://github.com/titasvdovycia-jpg" target="_blank" rel="noopener noreferrer" title="GitHub"><i data-feather="github" class="w-4 h-4 hover:text-white transition-colors"></i></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="grid lg:grid-cols-12 gap-16">
+      <aside class="lg:col-span-4">
+        <div class="p-8 border border-[#1d2e27]/80 bg-[#11211b]/80 backdrop-blur-sm rounded-3xl space-y-6 sticky top-24">
+          <div class="flex items-center gap-2 text-[#d97757]">
+            <i data-feather="info" class="w-4 h-4"></i>
+            <h2 class="text-[10px] uppercase tracking-[0.3em] font-bold">Current Focus</h2>
+          </div>
+          <p class="text-sm leading-loose text-[#a8b3ac]">
+            Learning to build websites with AI.
+          </p>
+          <div class="pt-4 border-t border-[#1d2e27]">
+            <span class="text-[10px] text-[#2d453b] uppercase tracking-widest font-mono">Build v2.0.0</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="lg:col-span-8">
+        <div class="space-y-4" id="project-container">
+          
+          <div class="project-card group transition-all duration-700 rounded-3xl border border-transparent hover:border-[#1d2e27]/50 backdrop-blur-sm" data-id="1">
+            <button class="w-full px-8 py-10 flex items-center justify-between text-left focus:outline-none toggle-btn">
+              <div class="flex items-center gap-8">
+                <span class="project-num text-[10px] font-mono tracking-widest transition-colors duration-500 text-[#2d453b]">/ 01</span>
+                <h3 class="project-title text-2xl font-extralight tracking-tight transition-all duration-500 text-[#a8b3ac] group-hover:text-white">UK Chess Directory</h3>
+              </div>
+              <div class="project-icon w-10 h-10 rounded-full border border-[#1d2e27] flex items-center justify-center transition-all duration-500 text-[#2d453b] bg-[#11211b]/50">
+                <i data-feather="arrow-up-right" class="w-4 h-4"></i>
+              </div>
+            </button>
+
+            <div class="expandable-content">
+              <div class="px-8 pb-12 pt-4 space-y-8">
+                <div class="h-px w-full bg-gradient-to-r from-[#1d2e27] to-transparent"></div>
+                <div class="grid md:grid-cols-5 gap-12">
+                  <div class="md:col-span-3 space-y-6">
+                    <p class="text-[#a8b3ac] leading-relaxed text-lg font-light">
+                      Detailed overview of the UK Chess Directory initiative. Focusing on map-first discovery and comprehensive integration with the ECF database.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                      <span class="text-[10px] uppercase tracking-[0.2em] text-[#d97757] font-semibold">#community</span>
+                      <span class="text-[10px] uppercase tracking-[0.2em] text-[#d97757] font-semibold">#visibility</span>
+                    </div>
+                  </div>
+                  <div class="md:col-span-2 space-y-6">
+                    <div class="aspect-square bg-[#0d1a15]/80 rounded-2xl border border-[#1d2e27] flex items-center justify-center group/image overflow-hidden relative shadow-inner backdrop-blur-sm">
+                      <i data-feather="layout" class="w-8 h-8 text-[#1d2e27] group-hover/image:text-[#d97757] transition-colors duration-700"></i>
+                      <div class="absolute inset-0 bg-[#d97757]/5 opacity-0 group-hover/image:opacity-100 transition-opacity"></div>
+                    </div>
+                    <a href="./chess_clubs_uk/index.html" class="block text-center w-full py-4 border border-[#d97757]/40 rounded-full text-[10px] uppercase tracking-widest text-[#d97757] hover:bg-[#d97757] hover:text-[#0d1a15] transition-all duration-300 font-bold">
+                      View Details
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card group transition-all duration-700 rounded-3xl border border-transparent hover:border-[#1d2e27]/50 backdrop-blur-sm" data-id="2">
+            <button class="w-full px-8 py-10 flex items-center justify-between text-left focus:outline-none toggle-btn">
+              <div class="flex items-center gap-8">
+                <span class="project-num text-[10px] font-mono tracking-widest transition-colors duration-500 text-[#2d453b]">/ 02</span>
+                <h3 class="project-title text-2xl font-extralight tracking-tight transition-all duration-500 text-[#a8b3ac] group-hover:text-white">Gambling Arbitrage</h3>
+              </div>
+              <div class="project-icon w-10 h-10 rounded-full border border-[#1d2e27] flex items-center justify-center transition-all duration-500 text-[#2d453b] bg-[#11211b]/50">
+                <i data-feather="arrow-up-right" class="w-4 h-4"></i>
+              </div>
+            </button>
+
+            <div class="expandable-content">
+              <div class="px-8 pb-12 pt-4 space-y-8">
+                <div class="h-px w-full bg-gradient-to-r from-[#1d2e27] to-transparent"></div>
+                <div class="grid md:grid-cols-5 gap-12">
+                  <div class="md:col-span-3 space-y-6">
+                    <p class="text-[#a8b3ac] leading-relaxed text-lg font-light">
+                      Professional betting operations manager identifying and visualizing arbitrage opportunities via high-speed analytics.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                      <span class="text-[10px] uppercase tracking-[0.2em] text-[#d97757] font-semibold">#analytics</span>
+                      <span class="text-[10px] uppercase tracking-[0.2em] text-[#d97757] font-semibold">#finance</span>
+                    </div>
+                  </div>
+                  <div class="md:col-span-2 space-y-6">
+                    <div class="aspect-square bg-[#0d1a15]/80 rounded-2xl border border-[#1d2e27] flex items-center justify-center group/image overflow-hidden relative shadow-inner backdrop-blur-sm">
+                      <i data-feather="layout" class="w-8 h-8 text-[#1d2e27] group-hover/image:text-[#d97757] transition-colors duration-700"></i>
+                      <div class="absolute inset-0 bg-[#d97757]/5 opacity-0 group-hover/image:opacity-100 transition-opacity"></div>
+                    </div>
+                    <a href="./arbitrage/index.html" class="block text-center w-full py-4 border border-[#d97757]/40 rounded-full text-[10px] uppercase tracking-widest text-[#d97757] hover:bg-[#d97757] hover:text-[#0d1a15] transition-all duration-300 font-bold">
+                      View Details
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <footer class="mt-48 flex justify-center items-center text-[10px] uppercase tracking-[0.4em] text-[#2d453b]">
+      <span>© <span id="year"></span> HOUSE OF BEBINGTON / UK</span>
+    </footer>
+  </div>
+
+  <script>
+    feather.replace();
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const cards = document.querySelectorAll('.project-card');
+    
+    cards.forEach(card => {
+      const btn = card.querySelector('.toggle-btn');
+      btn.addEventListener('click', () => {
+        const isExpanded = card.classList.contains('expanded');
+        
+        // Close all
+        cards.forEach(c => {
+          c.classList.remove('expanded', 'bg-[#11211b]/90', 'shadow-2xl');
+          c.classList.add('border-transparent');
+          
+          c.querySelector('.project-num').classList.replace('text-[#d97757]', 'text-[#2d453b]');
+          c.querySelector('.project-title').classList.remove('text-white', 'translate-x-2');
+          c.querySelector('.project-title').classList.add('text-[#a8b3ac]');
+          
+          const icon = c.querySelector('.project-icon');
+          icon.classList.remove('bg-[#d97757]', 'border-[#d97757]', 'text-[#0d1a15]', 'rotate-45', 'font-bold');
+          icon.classList.add('text-[#2d453b]', 'bg-[#11211b]/50');
+        });
+
+        // Toggle clicked
+        if (!isExpanded) {
+          card.classList.add('expanded', 'bg-[#11211b]/90', 'shadow-2xl');
+          card.classList.remove('border-transparent');
+          
+          card.querySelector('.project-num').classList.replace('text-[#2d453b]', 'text-[#d97757]');
+          card.querySelector('.project-title').classList.add('text-white', 'translate-x-2');
+          card.querySelector('.project-title').classList.remove('text-[#a8b3ac]');
+          
+          const icon = card.querySelector('.project-icon');
+          icon.classList.add('bg-[#d97757]', 'border-[#d97757]', 'text-[#0d1a15]', 'rotate-45', 'font-bold');
+          icon.classList.remove('text-[#2d453b]', 'bg-[#11211b]/50');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

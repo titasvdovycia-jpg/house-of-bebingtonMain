@@ -1,0 +1,159 @@
+/* Custom styles for UK Chess Directory */
+
+:root {
+    --bg-slate-950: #0d1a15;
+    --blue-500: #d97757;
+    --blue-600: #b86448;
+    --cyan-400: #e29b82;
+}
+
+/* ─── Custom Scrollbar ───────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(217,119,87,0.4); }
+
+/* ─── Leaflet Map Styling ────────────────────────────────────────── */
+#map-clubs, #map-events {
+    background-color: #0d1a15 !important;
+}
+.leaflet-container { background: transparent !important; }
+.leaflet-control-attribution { display: none !important; }
+.leaflet-routing-container { display: none; }
+
+/* ─── Custom Markers ─────────────────────────────────────────── */
+.chess-marker { background: none; border: none; }
+
+.marker-inner {
+    width: 28px;
+    height: 28px;
+    background: #00703C; /* Zalgiris green */
+    border: 2px solid #ffffff; /* White border */
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.marker-inner::after {
+    content: '♟';
+    font-size: 16px;
+    color: #ffffff; /* White icon */
+    line-height: 1;
+}
+.marker-inner:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255,255,255,0.8);
+}
+
+/* ─── Popup Styling ──────────────────────────────────────────── */
+.leaflet-popup-content-wrapper {
+    background: #11211b;
+    color: #f1f5f9;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+    max-width: 280px;
+}
+.leaflet-popup-tip { background: #11211b; }
+.popup-content h3 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #f5a623;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+}
+.popup-content p {
+    font-size: 0.78rem;
+    color: #a8b3ac;
+    line-height: 1.5;
+    margin-bottom: 2px;
+}
+.popup-content a { color: #e87c3e; }
+.popup-content a:hover { color: #f5a623; text-decoration: underline; }
+
+/* ─── Chessboard Hero Mask ───────────────────────────────────── */
+.chessboard-mask {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 100%);
+    mask-image: linear-gradient(to right, transparent, black 100%);
+}
+
+/* ─── Range Slider ───────────────────────────────────────────── */
+input[type=range] { -webkit-appearance: none; }
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px; width: 16px;
+    border-radius: 2px;
+    background: #ffffff;
+    cursor: pointer;
+    margin-top: -6px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+    border: 2px solid #d97757;
+    z-index: 10;
+    position: relative;
+}
+input[type=range]::-moz-range-thumb {
+    height: 16px; width: 16px;
+    border-radius: 2px;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+    border: 2px solid #d97757;
+}
+
+/* ─── Checkbox ───────────────────────────────────────────────── */
+input[type="checkbox"]:checked + div { border-color: #d97757 !important; }
+
+/* ─── Select Dropdown Styling ────────────────────────────────── */
+select option {
+    background: #11211b;
+    color: white;
+}
+select {
+    color-scheme: dark;
+}
+
+/* ─── Badges ─────────────────────────────────────────────────── */
+.badge-ecf, .badge-fide, .badge-none, .badge-age {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 6px;
+    border-radius: 2px;
+}
+.badge-ecf  { background: #b86448; color: #fff; }
+.badge-fide { background: #2d453b; color: #fff; }
+.badge-none { background: #374151; color: #9ca3af; }
+.badge-age  { background: rgba(255,255,255,0.06); color: #94a3b8; border: 1px solid rgba(255,255,255,0.1); }
+
+/* ─── Card Hover ─────────────────────────────────────────────── */
+.club-card, .event-card {
+    transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+.club-card:hover, .event-card:hover {
+    transform: translateX(2px);
+}
+
+/* ─── Animation ──────────────────────────────────────────────── */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.club-card, .event-card { animation: fadeIn 0.3s ease forwards; }
+
+/* ─── Layout Height Fix ──────────────────────────────────────── */
+#clubs-sidebar, #events-sidebar, #main-map-container-clubs, #main-map-container-events {
+    height: 50vh;
+}
+@media (min-width: 768px) {
+    #clubs-sidebar, #events-sidebar, #main-map-container-clubs, #main-map-container-events {
+        height: calc(100vh - 80px);
+    }
+}
