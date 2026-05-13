@@ -27,8 +27,8 @@
 .marker-inner {
     width: 28px;
     height: 28px;
-    background: #00703C; /* Zalgiris green */
-    border: 2px solid #ffffff; /* White border */
+    background: #3b82f6; /* Default Blue */
+    border: 2px solid #ffffff;
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     display: flex;
@@ -36,10 +36,15 @@
     justify-content: center;
     transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
 }
+
+/* Color overrides */
+.marker-blue .marker-inner { background: #3b82f6; }
+.marker-orange .marker-inner { background: #fb923c; } /* Tournament Orange */
+
 .marker-inner::after {
     content: '♟';
     font-size: 16px;
-    color: #ffffff; /* White icon */
+    color: #ffffff;
     line-height: 1;
 }
 .marker-inner:hover {
@@ -149,11 +154,12 @@ select {
 .club-card, .event-card { animation: fadeIn 0.3s ease forwards; }
 
 /* ─── Layout Height Fix ──────────────────────────────────────── */
-#clubs-sidebar, #events-sidebar, #main-map-container-clubs, #main-map-container-events {
+#directory-sidebar, #main-map-container-dir {
     height: 50vh;
 }
 @media (min-width: 768px) {
-    #clubs-sidebar, #events-sidebar, #main-map-container-clubs, #main-map-container-events {
+    #directory-sidebar, #main-map-container-dir {
         height: calc(100vh - 80px);
     }
 }
+

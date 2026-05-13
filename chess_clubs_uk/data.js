@@ -1,5 +1,5 @@
-/**
- * UK Chess Directory — Seed Data
+﻿/**
+ * UK Chess Directory â€” Seed Data
  * Clubs include contact info; Events include duration & registration URLs
  */
 
@@ -1705,10 +1705,10 @@ const chessClubs = [
 const chessEvents = [
     {
         id: 101,
-        title: "Cheshire Individual Championship 2025",
+        title: "Cheshire Individual Championship 2026",
         clubId: 4, // Chester
-        startDate: "2025-05-10",
-        endDate: "2025-05-11",
+        startDate: "2026-05-10",
+        endDate: "2026-05-11",
         time: "10:00",
         type: "Championship",
         ratingType: "ECF",
@@ -1720,15 +1720,15 @@ const chessEvents = [
         venue: "The Cross Keys, 2 Duke St, Chester CH1 1RE",
         lat: 53.1882,
         lng: -2.8918,
-        entryFee: "£20",
+        entryFee: "Â£20",
         county: "Cheshire"
     },
     {
         id: 102,
-        title: "Crewe Congress 2025",
+        title: "Crewe Congress 2026",
         clubId: 1, // Crewe
-        startDate: "2025-09-13",
-        endDate: "2025-09-14",
+        startDate: "2026-09-13",
+        endDate: "2026-09-14",
         time: "09:30",
         type: "Congress",
         ratingType: "ECF",
@@ -1740,15 +1740,15 @@ const chessEvents = [
         venue: "St Mary's Caritas Centre, 65 Delamere Street, Crewe, CW1 2JX",
         lat: 53.0991,
         lng: -2.4411,
-        entryFee: "£30",
+        entryFee: "Â£30",
         county: "Cheshire"
     },
     {
         id: 103,
         title: "Stockport Rapidplay",
         clubId: 6, // Stockport
-        startDate: "2025-11-23",
-        endDate: "2025-11-23",
+        startDate: "2026-11-23",
+        endDate: "2026-11-23",
         time: "10:45",
         type: "Rapid",
         ratingType: "ECF",
@@ -1760,15 +1760,15 @@ const chessEvents = [
         venue: "The Ladybrook, Fir Rd, Bramhall, Stockport SK7 3NY",
         lat: 53.3590,
         lng: -2.1620,
-        entryFee: "£15",
+        entryFee: "Â£15",
         county: "Greater Manchester"
     },
     {
         id: 104,
-        title: "Wirral Open 2025",
+        title: "Wirral Open 2026",
         clubId: 2, // Wallasey
-        startDate: "2025-06-21",
-        endDate: "2025-06-22",
+        startDate: "2026-06-21",
+        endDate: "2026-06-22",
         time: "10:00",
         type: "Congress",
         ratingType: "ECF",
@@ -1780,7 +1780,7 @@ const chessEvents = [
         venue: "90 Manor Road, Wallasey, Wirral CH44 1BZ",
         lat: 53.4243,
         lng: -3.0538,
-        entryFee: "£25",
+        entryFee: "Â£25",
         county: "Merseyside"
     }
 ];
