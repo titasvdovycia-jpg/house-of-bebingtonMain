@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eurovision 2026 – Fan Scoring Hub | Vienna</title>
+  <meta name="description" content="Rate all 25 Eurovision Song Contest 2026 Grand Final acts across multiple categories. Compare scores, find averages, and see who ranked highest among your group." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Setup Modal -->
+  <div id="setup-modal" class="modal-overlay active">
+    <div class="modal-card setup-card">
+      <div class="modal-logo">
+        <div class="esc-logo-mini">
+          <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="grad-mini" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#009EE0"/>
+                <stop offset="50%" style="stop-color:#FFFFFF"/>
+                <stop offset="100%" style="stop-color:#F05A28"/>
+              </linearGradient>
+            </defs>
+            <text x="60" y="30" font-family="Outfit" font-size="26" font-weight="900" fill="url(#grad-mini)" text-anchor="middle" letter-spacing="2">ESC 2026</text>
+          </svg>
+        </div>
+        <p class="modal-subtitle">Fan Scoring Hub – Vienna, Austria</p>
+      </div>
+      <h2 class="modal-title">Set Up Your Scoring Session</h2>
+      <div class="form-group">
+        <label for="rater-count">Number of Raters</label>
+        <p class="hint-text">For 2 raters, scores can be entered side-by-side.</p>
+        <div class="rater-count-picker">
+          <button class="count-btn" id="count-minus" onclick="changeCount(-1)">−</button>
+          <span id="rater-count-display">2</span>
+          <button class="count-btn" id="count-plus" onclick="changeCount(1)">+</button>
+        </div>
+      </div>
+      <div id="rater-names-container" class="form-group">
+        <label>Rater Names</label>
+        <div id="rater-inputs"></div>
+      </div>
+      <div class="form-group">
+        <label>Rating Categories</label>
+        <p class="hint-text">Select the categories each rater will score (1–10)</p>
+        <div id="category-toggles" class="category-toggles"></div>
+      </div>
+      <button class="btn-primary start-btn" id="start-btn" onclick="startSession()">
+        🎤 Start Scoring!
+      </button>
+    </div>
+  </div>
+
+  <!-- Main App -->
+  <div id="app" class="hidden">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="esc-logo-container">
+          <svg class="esc-logo-svg" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#00CFFF"/>
+                <stop offset="50%" style="stop-color:#FFFFFF"/>
+                <stop offset="100%" style="stop-color:#F05A28"/>
+              </linearGradient>
+            </defs>
+            <!-- Main Text -->
+            <text x="20" y="55" font-family="Outfit" font-size="42" font-weight="900" fill="url(#textGrad)" letter-spacing="1">EUROVISION</text>
+            <text x="20" y="82" font-family="Outfit" font-size="22" font-weight="600" fill="#FFFFFF" opacity="0.9" letter-spacing="4">SONG CONTEST</text>
+            <text x="20" y="105" font-family="Outfit" font-size="18" font-weight="400" fill="#F05A28" letter-spacing="6">2 0 2 6 · V I E N N A</text>
+          </svg>
+          <div class="header-tagline" style="margin-left:10px;">Fan Scoring Hub</div>
+        </div>
+        <div class="header-controls">
+          <div class="header-actions">
+            <button class="btn-secondary" id="results-btn" onclick="showResults()">🏆 Results & Standings</button>
+            <button class="btn-secondary" id="reset-btn" onclick="confirmReset()">⚙️ Reset</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Country Grid -->
+    <main class="main-content">
+      <div class="filter-bar">
+        <input type="text" id="search-input" placeholder="🔍 Search country or song..." oninput="filterCards()" />
+      </div>
+      <div id="country-grid" class="country-grid"></div>
+    </main>
+  </div>
+
+  <!-- Results Modal -->
+  <div id="results-modal" class="modal-overlay">
+    <div class="modal-card results-card">
+      <div class="results-header">
+        <h2>🏆 Final Rankings</h2>
+        <p id="results-subtitle"></p>
+        <button class="modal-close" onclick="hideResults()">✕</button>
+      </div>
+
+      <!-- Tab bar: Overall | Per Rater | Closest -->
+      <div class="results-tabs">
+        <button class="rtab active" onclick="switchResultTab('overall', this)">Overall</button>
+        <button class="rtab" onclick="switchResultTab('per-rater', this)" id="per-rater-tab-btn">Per Rater</button>
+        <button class="rtab" onclick="switchResultTab('closest', this)">🎯 Closest</button>
+      </div>
+
+      <div id="results-overall" class="results-panel active">
+        <div id="overall-list" class="results-list"></div>
+      </div>
+      <div id="results-per-rater" class="results-panel hidden">
+        <div id="per-rater-container"></div>
+      </div>
+      <div id="results-closest" class="results-panel hidden">
+        <div id="closest-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
