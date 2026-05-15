@@ -237,7 +237,7 @@
     });
 
     // Fetch latest commit and total count to display dynamic build version
-    fetch('https://api.github.com/repos/titasvdovycia-jpg/house_of_bebington_portfolio/commits?per_page=1')
+    fetch('https://api.github.com/repos/titasvdovycia-jpg/house-of-bebingtonMain/commits?per_page=1')
       .then(response => {
         const link = response.headers.get('link');
         let totalCommits = 1;
