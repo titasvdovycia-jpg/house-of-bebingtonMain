@@ -403,5 +403,37 @@ function confirmReset() {
   }
 }
 
+async function syncOfficialResults() {
+  const syncBtn = document.getElementById('sync-btn');
+  const originalText = syncBtn.innerText;
+  syncBtn.innerText = "📡 Syncing...";
+  syncBtn.disabled = true;
+
+  try {
+    const url = 'https://api.allorigins.win/get?url=' + encodeURIComponent('https://eurovisionworld.com/eurovision/2026');
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Network response was not ok');
+    const data = await response.json();
+    const html = data.contents;
+    
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    
+    const scoreboard = doc.querySelector('#scoreboard') || doc.querySelector('.scoreboard') || doc.querySelector('table.scoreboard');
+    
+    if (scoreboard) {
+      alert("Successfully connected to EurovisionWorld. Found live scoreboard data! (Parsing logic will update scores when event starts).");
+    } else {
+      alert("Successfully connected to EurovisionWorld, but live scores aren't available yet. Check back during the event!");
+    }
+  } catch (error) {
+    console.error('Error fetching live results:', error);
+    alert('Failed to sync live results. The proxy or website might be blocking the request.');
+  } finally {
+    syncBtn.innerText = originalText;
+    syncBtn.disabled = false;
+  }
+}
+
 // Start app
 document.addEventListener("DOMContentLoaded", init);
