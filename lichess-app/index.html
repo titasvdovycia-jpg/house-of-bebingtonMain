@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DuChess of Bebington - Lichess App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Chessground CSS from CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/@lichess-org/chessground/assets/chessground.base.css">
+    <link rel="stylesheet" href="https://unpkg.com/@lichess-org/chessground/assets/chessground.brown.css">
+    <link rel="stylesheet" href="https://unpkg.com/@lichess-org/chessground/assets/chessground.cburnett.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <div class="logo">
+                <i class="fa-solid fa-chess-knight"></i>
+                <h1>DuChess of Bebington</h1>
+            </div>
+            <div id="user-info" class="user-info hidden">
+                <span id="username"></span>
+                <button id="logout-btn" class="btn btn-secondary">Logout</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Login View -->
+            <section id="login-view" class="view active">
+                <div class="card login-card">
+                    <h2>Welcome to DuChess of Bebington</h2>
+                    <p>Login with your Lichess account to play directly on this website.</p>
+                    <button id="login-btn" class="btn btn-primary btn-large">
+                        <i class="fa-solid fa-right-to-bracket"></i> Login with Lichess
+                    </button>
+                </div>
+            </section>
+
+            <!-- Dashboard View -->
+            <section id="dashboard-view" class="view hidden">
+                <div class="dashboard-controls">
+                    <button id="play-ai-btn" class="btn btn-primary">
+                        <i class="fa-solid fa-robot"></i> Play Stockfish
+                    </button>
+                    <button id="play-random-btn" class="btn btn-primary">
+                        <i class="fa-solid fa-users"></i> Find Random Opponent
+                    </button>
+                    <!-- More options can be added later -->
+                </div>
+                <div id="game-container" class="hidden">
+                    <div id="board" class="cg-board-wrap"></div>
+                    <div class="game-info">
+                        <h3 id="game-status">Waiting for move...</h3>
+                        <div id="game-moves"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- We will use type="module" so we can import dependencies from CDNs -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>

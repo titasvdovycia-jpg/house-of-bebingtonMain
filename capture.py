@@ -28,6 +28,11 @@ async def main():
         await page.wait_for_timeout(2000)
         await page.screenshot(path=os.path.join(base_dir, 'assets', 'screenshots', 'eurovision-hub.png'))
         
+        print("Capturing DuChess of Bebington...")
+        await page.goto(f"file:///{base_dir}/lichess-app/index.html")
+        await page.wait_for_timeout(2000)
+        await page.screenshot(path=os.path.join(base_dir, 'assets', 'screenshots', 'duchess.png'))
+        
         print("Done!")
         await browser.close()
 
