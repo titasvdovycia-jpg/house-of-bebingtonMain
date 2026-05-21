@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ocado Assistant — Smart Recipe Shopping</title>
+    <meta name="description" content="Turn any recipe into a perfectly-sized Ocado basket in seconds. Paste, import from URL, or photograph your recipe and let us handle the rest." />
+    <meta name="theme-color" content="#0d1117" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="/assets/index-D1rx-JTA.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B2GAmSBM.css">
+  </head>
+  <body>
+    <div id="app">
+      <!-- Top navigation -->
+      <nav class="navbar" id="navbar">
+        <div class="nav-brand">
+          <span class="nav-logo">🛒</span>
+          <span class="nav-title">Ocado <strong>Assistant</strong></span>
+        </div>
+        <div class="nav-links">
+          <a href="#/" class="nav-link" id="nav-home">Recipes</a>
+          <a href="#/add" class="nav-link" id="nav-add">+ New Recipe</a>
+        </div>
+        <div class="extension-status" id="extension-status">
+          <span class="status-dot" id="status-dot"></span>
+          <span id="status-label">Extension not detected</span>
+        </div>
+      </nav>
+
+      <!-- Router outlet -->
+      <main class="main-content" id="view-outlet"></main>
+    </div>
+
+  </body>
+</html>
