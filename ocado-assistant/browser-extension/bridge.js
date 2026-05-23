@@ -24,4 +24,11 @@ window.addEventListener('message', (event) => {
       window.postMessage({ type: 'OCADO_SYNC_ORDERS_RESPONSE', response }, '*');
     });
   }
+
+  if (event.data && event.data.type === 'OCADO_SEARCH') {
+    // Forward search request to background script
+    chrome.runtime.sendMessage({ action: 'SEARCH_OCADO', query: event.data.query }, (response) => {
+      window.postMessage({ type: 'OCADO_SEARCH_RESPONSE', requestId: event.data.requestId, response }, '*');
+    });
+  }
 });
